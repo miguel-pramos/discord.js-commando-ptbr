@@ -15,7 +15,7 @@ module.exports = class UnknownCommandCommand extends Command {
 
 	run(msg) {
 		return msg.reply(
-			`Comando desconhecido. Use ${msg.anyUsage(
+			`este comando é desconhecido. Use ${msg.anyUsage(
 				'help',
 				msg.guild ? undefined : null,
 				msg.guild ? undefined : null
