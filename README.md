@@ -9,29 +9,15 @@
 Commando is the official command framework for [discord.js](https://github.com/discordjs/discord.js).
 It is flexible, fully object-oriented, easy to use, and makes it trivial to create your own powerful commands.
 Additionally, it makes full use of ES2017's `async`/`await` functionality for clear, concise code that is simple to write and easy to comprehend.
+But this is the unofficial pt-BR translation.
 
 ## Features
-- Plain command names and aliases
-- Regular expression triggers
-- Robust parsing of arguments (with "quoted strings" support)
-- Sophisticated argument system (optional)
-	* Automatic prompting for arguments that aren't provided
-	* Type system with rules, automatic validation, and parsing to usable values
-		- Basic types (string, integer, float, boolean)
-		- Discord objects (user, member, role, channel, message)
-		- User-defined custom types
-		- Union types
-	* Automatic re-prompting of invalid arguments
-	* Optional arguments with default values
-	* Infinite arguments (arguments that accept as many values as provided)
-- Multiple responses to commands
-- Command editing (user edits their message that triggered the command, and the bot's response updates with it)
-- Command reloading, as well as loading/unloading
-- Command throttling/cooldowns
+**Everithing Commando has but in Portuguese**
+- Note: Only bot responses to discord are translated, everything is the same to devs.
 
 ## Installation
 **Node 12.0.0 or newer is required.**  
-`npm install discord.js@12 discord.js-commando`
+`npm install discord.js@12 discord.js-commando-ptbt`
 
 ## Documentation
 [View the docs here.](https://discord.js.org/#/docs/commando)  
