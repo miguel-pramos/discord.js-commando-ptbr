@@ -1,4 +1,4 @@
-declare module 'discord.js-commando' {
+declare module 'discord.js-commando-ptbr' {
 	import { Client, ClientEvents, ClientOptions, Collection, Guild, GuildResolvable, Message, MessageAttachment, MessageEditOptions, MessageEmbed, MessageOptions, MessageAdditions, MessageReaction, PermissionResolvable, PermissionString, StringResolvable, User, UserResolvable } from 'discord.js';
 
 	export class Argument {

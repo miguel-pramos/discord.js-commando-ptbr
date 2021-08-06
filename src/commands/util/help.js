@@ -89,7 +89,7 @@ module.exports = class HelpCommand extends Command {
 						`).join('\n\n')
 					}
 				`, { split: true }));
-				if(msg.channel.type !== 'dm') messages.push(await msg.reply('Informações enviadas para DM.'));
+				// if(msg.channel.type !== 'dm') messages.push(await msg.reply('Informações enviadas para DM.'));
 			} catch(err) {
 				messages.push(await msg.reply('Incapaz de enviar informações pela DM. Provavelmente estão desativadas.'));
 			}
