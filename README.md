@@ -13,11 +13,11 @@ But this is the unofficial pt-BR translation.
 
 ## Features
 **Everithing Commando has but in Portuguese**
-- Note: Only bot responses to discord are translated, everything is the same to devs.
+- Note: Only bot responses to discord are translated, JavaScript code and owner-only commands are not translated.
 
 ## Installation
 **Node 12.0.0 or newer is required.**  
-`npm install discord.js@12 discord.js-commando-ptbt`
+`npm install discord.js@12 discord.js-commando-ptbr`
 
 ## Documentation
 [View the docs here.](https://discord.js.org/#/docs/commando)  

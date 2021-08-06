@@ -37,7 +37,7 @@ class TextChannelArgumentType extends ArgumentType {
 			`${disambiguation(
 				channels.map(chan => escapeMarkdown(chan.name)), 'text channels', null
 			)}\n` :
-			'Multiple text channels found. Please be more specific.';
+			'Múltiplos canais de texto encontrados. Seja mais específico.';
 	}
 
 	parse(val, msg) {

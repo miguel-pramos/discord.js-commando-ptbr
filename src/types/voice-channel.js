@@ -37,7 +37,7 @@ class VoiceChannelArgumentType extends ArgumentType {
 			`${disambiguation(
 				channels.map(chan => escapeMarkdown(chan.name)), 'voice channels', null
 			)}\n` :
-			'Multiple voice channels found. Please be more specific.';
+			'Múltiplos canais de voz encontrados. Seja mais específico.';
 	}
 
 	parse(val, msg) {

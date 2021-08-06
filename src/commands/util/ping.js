@@ -7,22 +7,19 @@ module.exports = class PingCommand extends Command {
 			name: 'ping',
 			group: 'util',
 			memberName: 'ping',
-			description: 'Checks the bot\'s ping to the Discord server.',
+			description: "Checa o ping do bot com o servidor.",
 			throttling: {
 				usages: 5,
-				duration: 10
-			}
+				duration: 10,
+			},
 		});
 	}
 
 	async run(msg) {
-		const pingMsg = await msg.reply('Pinging...');
-		return pingMsg.edit(oneLine`
-			${msg.channel.type !== 'dm' ? `${msg.author},` : ''}
-			Pong! The message round-trip took ${
-				(pingMsg.editedTimestamp || pingMsg.createdTimestamp) - (msg.editedTimestamp || msg.createdTimestamp)
-			}ms.
-			${this.client.ws.ping ? `The heartbeat ping is ${Math.round(this.client.ws.ping)}ms.` : ''}
-		`);
+		const ping = Date.now() - msg.createdTimestamp;
+
+		msg.reply(
+			`:ping_pong: Pong! - Latência do Bot: ${ping}, Latência da API: ${this.client.ws.ping}`
+		);
 	}
 };

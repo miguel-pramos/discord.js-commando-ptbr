@@ -37,7 +37,7 @@ class CategoryChannelArgumentType extends ArgumentType {
 			`${disambiguation(
 				channels.map(chan => escapeMarkdown(chan.name)), 'categories', null
 			)}\n` :
-			'Multiple categories found. Please be more specific.';
+			'Múltiplas categorias encontradas. Seja mais específico.';
 	}
 
 	parse(val, msg) {
