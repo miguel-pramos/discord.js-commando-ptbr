@@ -22,16 +22,18 @@ module.exports = class PrefixCommand extends Command {
 					prompt: 'Identifique o novo prefixo do bot.',
 					type: 'string',
 					max: 15,
-					default: ''
-				}
-			]
+					default: '',
+				},
+			],
 		});
 	}
 
 	async run(msg, args) {
 		// Just output the prefix
-		if(!args.prefix) {
-			const prefix = msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix;
+		if (!args.prefix) {
+			const prefix = msg.guild
+				? msg.guild.commandPrefix
+				: this.client.commandPrefix;
 			return msg.reply(stripIndents`
 				${prefix ? `O prefixo atual é \`${prefix}\`.` : 'O bot não tem prefixo.'}
 				Para usar comandos, use ${msg.anyUsage('comando')}.
@@ -39,11 +41,14 @@ module.exports = class PrefixCommand extends Command {
 		}
 
 		// Check the user's permission before changing anything
-		if(msg.guild) {
-			if(!msg.member.permissions.has('ADMINISTRATOR') && !this.client.isOwner(msg.author)) {
+		if (msg.guild) {
+			if (
+				!msg.member.permissions.has('ADMINISTRATOR') &&
+				!this.client.isOwner(msg.author)
+			) {
 				return msg.reply('Somente administradores podem mudar o prefixo do bot.');
 			}
-		} else if(!this.client.isOwner(msg.author)) {
+		} else if (!this.client.isOwner(msg.author)) {
 			return msg.reply('Somente o dono do bot pode mudar o prefixo do bot.');
 		}
 
@@ -51,16 +56,28 @@ module.exports = class PrefixCommand extends Command {
 		const lowercase = args.prefix.toLowerCase();
 		const prefix = lowercase === 'none' ? '' : args.prefix;
 		let response;
-		if(lowercase === 'padrao') {
-			if(msg.guild) msg.guild.commandPrefix = null; else this.client.commandPrefix = null;
-			const current = this.client.commandPrefix ? `\`${this.client.commandPrefix}\`` : 'sem prefixo';
+		if (lowercase === 'padrao') {
+			if (msg.guild) msg.guild.commandPrefix = null;
+			else this.client.commandPrefix = null;
+			const current = this.client.commandPrefix
+				? `\`${this.client.commandPrefix}\``
+				: 'sem prefixo';
 			response = `Prefixo resetado para o padrão (${current}).`;
 		} else {
-			if(msg.guild) msg.guild.commandPrefix = prefix; else this.client.commandPrefix = prefix;
-			response = prefix ? `O prefixo do foi atualizado para \`${args.prefix}\`.` : 'Prefixo removido.';
+			if (msg.guild) msg.guild.commandPrefix = prefix;
+			else this.client.commandPrefix = prefix;
+			response = prefix
+				? `O prefixo do foi atualizado para \`${args.prefix}\`.`
+				: 'Prefixo removido.';
 		}
 
-		await msg.reply(`${response} Para usar comandos, use ${msg.anyUsage('comando')}.`);
+		msg.guild
+			.member(this.client.user)
+			.setNickname(`[${msg.guild.commandPrefix}] ${this.client.user.username}`);
+
+		await msg.reply(
+			`${response} Para usar comandos, use ${msg.anyUsage('comando')}.`
+		);
 		return null;
 	}
 };

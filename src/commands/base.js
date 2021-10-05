@@ -378,6 +378,7 @@ class Command {
 			: '';
 
 		const invite = this.client.options.invite;
+		console.log("========-CLIENT ERROR-========\n" + err)
 		return message.reply(oneLine`
 			Me desculpe, algo de errado aconteceu. Por favor, envie uma mensagem para
 			${ownerList || 'o dono do bot'} para que o problema seja resolvido.
